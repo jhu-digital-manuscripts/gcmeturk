@@ -1,0 +1,110 @@
+<!--
+     HTML template for a translation task with form validation.
+
+     Form validation is performed by Parsley:
+
+       http://parsleyjs.org
+
+     Parsley depends on jQuery.
+     The Parsley and jQuery JavaScript file are loaded from public CDNs.
+
+
+     The CSV input file should have columns:
+
+     The CSV results file will include the columns:
+-->
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.1/parsley.js"></script>
+<script>
+  $(document).ready(function() {
+      addTask("${Identifier_0}", "${Label_0}", "${Text_0}");
+      addTask("${Identifier_1}", "${Label_1}", "${Text_1}");      
+      addTask("${Identifier_2}", "${Label_2}", "${Text_2}");
+      addTask("${Identifier_3}", "${Label_3}", "${Text_3}");
+      addTask("${Identifier_4}", "${Label_4}", "${Text_4}");      
+ 
+      $('#mturk_form').parsley();
+  });
+
+  function addTask(identifier, label, text) {
+      let  words = text.split(" ");
+      let index = 0;
+
+      let h2 = document.createElement("h2");
+      h2.textContent = label;
+      
+      let table = document.createElement("table");
+      let label_tr = table.insertRow(-1);
+      let input_tr = table.insertRow(-1);
+      
+      words.forEach(word => {
+	  let label_td = label_tr.insertCell(-1);
+	  let input_td = input_tr.insertCell(-1);
+	  let label = document.createElement("label");
+	  let input = document.createElement("input");
+	  let inputid = identifier + "/" + index
+
+	  index++;
+	  label.setAttribute("for", inputid);
+	  label.textContent = word;
+
+	  input.setAttribute("name", inputid);
+	  input.id =  inputid;
+	  input.setAttribute("type", "text");
+	  input.setAttribute("required", true);
+	  input.setAttribute("size", word.length);
+	  
+	  label_td.appendChild(label);
+	  input_td.appendChild(input);	  
+      });
+
+      $('#taskdiv').append(h2, table);
+  }
+</script>
+<style>
+/* Style rules copied from:  http://parsleyjs.org/src/parsley.css */
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+  color: #468847;
+  background-color: #DFF0D8;
+  border: 1px solid #D6E9C6;
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  color: #B94A48;
+  background-color: #F2DEDE;
+  border: 1px solid #EED3D7;
+}
+
+.parsley-errors-list {
+  margin: 2px 0 3px;
+  padding: 0;
+  list-style-type: none;
+  font-size: 0.9em;
+  line-height: 0.9em;
+  opacity: 0;
+
+  transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+}
+
+.parsley-errors-list.filled {
+  opacity: 1;
+}
+</style>
+
+<h1>Instructions</h1>
+<p>
+  Instructions here....
+</p>
+<hr>
+
+<div id="taskdiv">
+
+</div>
