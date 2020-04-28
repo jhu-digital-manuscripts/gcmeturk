@@ -17,9 +17,9 @@ It consists of the orginal file name, the file identifier provided for each line
 The output form maps each word to the stress status of its syllables. They key is the identifier from the input column plus the index of the word with a slash separator.
 
 ```
-01-1-ch.cat_01-1-ch_6/0: uv
-01-1-ch.cat_01-1-ch_6/1: vv
-01-1-ch.cat_01-1-ch_6/2: uu
+01-1-ch.cat_01-1-ch_6/0: us
+01-1-ch.cat_01-1-ch_6/1: su
+01-1-ch.cat_01-1-ch_6/2: usu
 ```
 
 # Testing with ProtoTurk
