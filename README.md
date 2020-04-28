@@ -14,13 +14,15 @@ The template expects input of the following form:
 The identifier used is a combination of values that key into the original data available at https://github.com/jhu-digital-manuscripts/gcme.
 It consists of the orginal file name, the file identifier provided for each line, and the line number separated by underscores. This allows reference back to the original data if needed. The label is the label of immediate work containing the line. The text consists of words separated by spaces. Punctuation may be attached to a word.
 
-The output form maps each word to the stress status of its syllables. They key is the identifier from the input column plus the index of the word with a slash separator.
+The output form maps each word to the stress status of its syllables. They key is the identifier from the input column plus the index of the word with a slash separator. The stress status is indicated with one or more u or s characters.
 
 ```
 01-1-ch.cat_01-1-ch_6/0: us
 01-1-ch.cat_01-1-ch_6/1: su
 01-1-ch.cat_01-1-ch_6/2: usu
 ```
+
+The template does validation as input is entered.
 
 # Testing with ProtoTurk
 
