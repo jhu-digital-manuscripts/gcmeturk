@@ -1,18 +1,4 @@
-<!--
-     HTML template for a translation task with form validation.
-
-     Form validation is performed by Parsley:
-
-       http://parsleyjs.org
-
-     Parsley depends on jQuery.
-     The Parsley and jQuery JavaScript file are loaded from public CDNs.
-
-
-     The CSV input file should have columns:
-
-     The CSV results file will include the columns:
--->
+<!-- Based on JQuery and Parsley. Adapted from ProtoTurk example. -->
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.1/parsley.js"></script>
@@ -54,6 +40,10 @@
 	  input.setAttribute("type", "text");
 	  input.setAttribute("required", true);
 	  input.setAttribute("size", word.length);
+	  input.setAttribute("data-parsley-pattern", "[su]+");
+	  input.setAttribute("data-parsley-trigger", "change keyup");
+	  input.setAttribute("data-parsley-validation-threshold", 0);
+	  input.setAttribute("data-parsley-error-message", "")
 	  
 	  label_td.appendChild(label);
 	  input_td.appendChild(input);	  
@@ -100,9 +90,14 @@ textarea.parsley-error {
 </style>
 
 <h1>Instructions</h1>
+  
 <p>
-  Instructions here....
+  Below each word enter the stress of each syllable, "u" for unstressed and "s" for stressed.
+  As you type the input will be validated. Valid input will have a green background. Invalid input will have a red background.
+  Hit Tab to quickly navigate between entries.
 </p>
+
+<p> When every entry is valid, click Submit to proceed to the next lines.</p>
 <hr>
 
 <div id="taskdiv">
