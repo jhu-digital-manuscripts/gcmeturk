@@ -40,7 +40,7 @@
 	  input.setAttribute("type", "text");
 	  input.setAttribute("required", true);
 	  input.setAttribute("size", word.length);
-	  input.setAttribute("data-parsley-pattern", "[su]+");
+	  input.setAttribute("data-parsley-pattern", "[sulheE]+");
 	  input.setAttribute("data-parsley-trigger", "change keyup");
 	  input.setAttribute("data-parsley-validation-threshold", 0);
 	  input.setAttribute("data-parsley-error-message", "")
@@ -92,7 +92,17 @@ textarea.parsley-error {
 <h1>Instructions</h1>
   
 <p>
-  Below each word enter the stress of each syllable, "u" for unstressed and "s" for stressed.
+  Below each word enter one or more letters which describe the syllables.
+
+  <ul>
+    <li><b>s</b>: stressed</li>
+    <li><b>u</b>: unstressed</li>
+    <li><b>l</b>: elided</li>
+    <li><b>h</b>: elided -e</li>
+    <li><b>e</b>: unsounded -e</li>
+    <li><b>E</b>: sounded -e</li>
+  </ul>
+    
   As you type the input will be validated. Valid input will have a green background. Invalid input will have a red background.
   Hit Tab to quickly navigate between entries.
 </p>
